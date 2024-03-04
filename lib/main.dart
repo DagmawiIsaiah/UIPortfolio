@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'home_page.dart';
+import '../utils/web_theme.dart' as wt;
+
 void main() {
   runApp(const UIPortfolio());
 }
@@ -9,11 +12,11 @@ class UIPortfolio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'UI Portfolio',
+    return MaterialApp(
+      title: 'Dagmawi Isaiah',
       debugShowCheckedModeBanner: false,
-      // theme: ,
-      // home: HomePage(),
+      theme: wt.WebTheme.webTheme,
+      home: const HomePage(),
     );
   }
 }
