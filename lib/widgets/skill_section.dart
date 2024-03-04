@@ -21,8 +21,8 @@ class ToolsSection extends StatelessWidget {
       child: Column(
         children: [
           const SectionText(
-            title: "Technologies",
-            subTitle: "Tools I Use",
+            title: "Skill",
+            subTitle: "Exprerienced In",
             isDark: true,
           ),
           const SizedBox(height: 30),
