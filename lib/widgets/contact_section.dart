@@ -58,7 +58,7 @@ class _ContactSectionState extends State<ContactSection> {
             ],
           ),
           const SizedBox(height: 20),
-          inputFiled("Your message", "type here", nameController, context),
+          inputFiled("Your message", "type here", messageController, context),
           const SizedBox(height: 40),
           ElevatedButton(
             onPressed: () {},

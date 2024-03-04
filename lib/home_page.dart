@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../utils/web_theme.dart' as wt;
 import '../widgets/widgets.dart';
+import '../providers/web_manager.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,10 +18,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final double multipler = Provider.of<WebManager>(context).scrollMultipler;
     scrollToSection() {
       scrollController.animateTo(
         // The position you want to scroll to (in pixels)
-        768 * 4,
+        768 * multipler,
         // The duration of the scroll animation
         duration: const Duration(milliseconds: 500),
         // The type of curve used for the scroll animation
@@ -60,7 +63,8 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(height: 20),
                     InkWell(
                       onTap: () async {
-                        Uri url = Uri.parse("https://www.linkedin.com/me?trk=p_mwlite_feed_updates-secondary_nav");
+                        Uri url = Uri.parse(
+                            "https://www.linkedin.com/me?trk=p_mwlite_feed_updates-secondary_nav");
                         if (!await launchUrl(url)) {
                           throw Exception('Could not launch $url');
                         }
