@@ -16,34 +16,37 @@ class SectionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        OutlinedText(
-          strokes: [
-            OutlinedTextStroke(
-              color: wt.WebColors.black.withOpacity(0.3),
-              width: 2,
+    return SizedBox(
+      width: 400,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          OutlinedText(
+            strokes: [
+              OutlinedTextStroke(
+                color: wt.WebColors.black.withOpacity(0.3),
+                width: 2,
+              ),
+            ],
+            text: Text(
+              title.toUpperCase(),
+              style: (isDark)
+                  ? Theme.of(context).textTheme.headlineLarge
+                  : Theme.of(context)
+                      .textTheme
+                      .headlineLarge!
+                      .copyWith(color: wt.WebColors.scaffoldbg),
             ),
-          ],
-          text: Text(
-            title.toUpperCase(),
-            style: (isDark)
-                ? Theme.of(context).textTheme.headlineLarge
-                : Theme.of(context)
-                    .textTheme
-                    .headlineLarge!
-                    .copyWith(color: wt.WebColors.scaffoldbg),
           ),
-        ),
-        Positioned(
-          top: 20,
-          child: Text(
-            subTitle,
-            style: Theme.of(context).textTheme.titleLarge,
+          Positioned(
+            top: 20,
+            child: Text(
+              subTitle,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

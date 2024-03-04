@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'home_page.dart';
 import '../utils/web_theme.dart' as wt;
+import '../providers/web_manager.dart';
 
 void main() {
-  runApp(const UIPortfolio());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => WebManager(),
+        ),
+      ],
+      child: const UIPortfolio(),
+    ),
+  );
 }
 
 class UIPortfolio extends StatelessWidget {

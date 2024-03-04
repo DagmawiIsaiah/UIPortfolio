@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ui_portfolio/providers/web_manager.dart';
 
 import '../utils/web_theme.dart' as wt;
 import '../widgets/widgets.dart';
@@ -38,6 +40,7 @@ class AboutMeSection extends StatelessWidget {
           const SizedBox(height: 30),
           ElevatedButton(
             onPressed: () {
+              Provider.of<WebManager>(context, listen: false).changeScrollMultipler(4);
               scroll();
             },
             child: const Text("Get in touch"),
